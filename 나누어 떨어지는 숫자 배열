@@ -1,0 +1,8 @@
+function solution(arr, divisor) {
+    let a = arr.filter(num => num % divisor === 0);
+    if (a.length === 0) {
+        return [-1];
+    }
+    a.sort((a, b) => a - b);
+    return a;
+}
