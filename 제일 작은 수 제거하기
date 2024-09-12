@@ -1,0 +1,26 @@
+#include <vector>
+#include <algorithm> 
+
+using namespace std;
+
+vector<int> solution(vector<int> arr) {
+    vector<int> answer;
+
+    if (arr.empty()) {
+        return {-1};
+    }
+
+    int minVal = *min_element(arr.begin(), arr.end());
+
+    for (int num : arr) {
+        if (num != minVal) {
+            answer.push_back(num);
+        }
+    }
+
+    if (answer.empty()) {
+        answer.push_back(-1);
+    }
+
+    return answer;
+}
