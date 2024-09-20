@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char* solution(int n) {
+    // "수박" 문자열
+    const char* watermelon = "수박";
+
+    char* answer = (char*)malloc(n * 3 + 1);
+    if (answer == NULL) {
+        return NULL; // 메모리 할당 실패
+    }
+
+    // 패턴 생성
+    for (int i = 0; i < n; i++) {
+        if (i % 2 == 0) {
+            strcpy(&answer[i * 3], "수"); // "수"를 추가
+        } else {
+            strcpy(&answer[i * 3], "박"); // "박"을 추가
+        }
+    }
+    
+    // NULL 종료 문자 추가
+    answer[n * 3] = '\0';
+    
+    return answer;
+}
+
