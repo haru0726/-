@@ -1,0 +1,7 @@
+function solution(price, money, count) {
+    const a = price * (count*(count+1))/2;
+    
+    const b = a - money;
+    
+    return (b>0)? b:0;
+}
