@@ -1,0 +1,12 @@
+function solution(n) {
+    // 1. n을 3진법 문자열로 변환
+    let ternary = n.toString(3);
+    
+    // 2. 3진법 문자열을 뒤집기
+    let reversedTernary = ternary.split('').reverse().join('');
+    
+    // 3. 뒤집은 문자열을 10진법 숫자로 변환
+    let answer = parseInt(reversedTernary, 3);
+    
+    return answer;
+}
