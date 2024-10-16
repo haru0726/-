@@ -1,0 +1,17 @@
+function solution(sizes) {
+    let maxWidth = 0;
+    let maxHeight = 0;
+
+    for (const [width, height] of sizes) {
+        // 정규화: 가로는 큰 값, 세로는 작은 값으로 설정
+        const normalizedWidth = Math.max(width, height);
+        const normalizedHeight = Math.min(width, height);
+        
+        // 최대 가로와 최대 세로 업데이트
+        maxWidth = Math.max(maxWidth, normalizedWidth);
+        maxHeight = Math.max(maxHeight, normalizedHeight);
+    }
+
+    // 지갑의 면적은 최대 가로와 최대 세로의 곱
+    return maxWidth * maxHeight;
+}
