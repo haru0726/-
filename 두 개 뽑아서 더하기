@@ -1,0 +1,13 @@
+function solution(numbers) {
+    const answer = new Set(); // 중복된 합을 방지하기 위해 Set 사용
+
+    // 두 개의 수를 선택하여 합을 계산
+    for (let i = 0; i < numbers.length; i++) {
+        for (let j = i + 1; j < numbers.length; j++) {
+            answer.add(numbers[i] + numbers[j]); // 합을 Set에 추가
+        }
+    }
+
+    // Set을 배열로 변환하고 정렬
+    return Array.from(answer).sort((a, b) => a - b);
+}
