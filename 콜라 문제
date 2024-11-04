@@ -1,0 +1,15 @@
+function solution(a, b, n) {
+    let answer = 0;
+
+    while (n >= a) {
+        // 새로운 콜라 병을 받을 수 있는 수 계산
+        const new_cola = Math.floor(n / a) * b;
+        answer += new_cola;
+        
+        // 남은 빈 병 계산
+        const bottles_used = Math.floor(n / a) * a;
+        n = n % a + new_cola; // 남은 빈 병 + 새로 받은 콜라 병
+    }
+    
+    return answer;
+}
