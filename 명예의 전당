@@ -1,0 +1,20 @@
+function solution(k, score) {
+    var answer = [];
+    var minHeap = [];  // 최소 힙을 사용하여 명예의 전당을 관리
+
+    for (let i = 0; i < score.length; i++) {
+        // 명예의 전당에 점수를 추가합니다.
+        minHeap.push(score[i]);
+        
+        // 명예의 전당에 점수가 k개를 초과하면 가장 작은 점수를 빼냅니다.
+        if (minHeap.length > k) {
+            minHeap.sort((a, b) => a - b);  // 최소 힙으로 정렬 (매일 점수에 대해 가장 작은 값을 빠르게 추출하기 위해)
+            minHeap.shift();  // 가장 작은 점수를 제거
+        }
+        
+        // 현재 명예의 전당에서 가장 낮은 점수를 기록합니다.
+        answer.push(minHeap[0]);
+    }
+
+    return answer;
+}
