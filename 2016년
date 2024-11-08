@@ -1,0 +1,23 @@
+function solution(a, b) {
+    // 각 월별 일수 (윤년)
+    const daysInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    
+    // 2016년 1월 1일은 금요일(FRI, 5)
+    const startDay = 5;  // 금요일
+
+    // 주어진 날짜 a월 b일까지 지난 날짜 수 계산
+    let totalDays = b - 1;  // 1일은 제외하고 b일까지 지난 일수
+    
+    // a월 이전의 모든 월들의 일수 더하기
+    for (let i = 0; i < a - 1; i++) {
+        totalDays += daysInMonth[i];
+    }
+
+    // 2016년 1월 1일부터 a월 b일까지 지난 총 일수에서 7로 나눈 나머지로 요일 계산
+    const weekDay = (startDay + totalDays) % 7;
+    
+    // 요일 배열
+    const weekDays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+    
+    return weekDays[weekDay];
+}
