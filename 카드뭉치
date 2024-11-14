@@ -1,0 +1,16 @@
+function solution(cards1, cards2, goal) {
+    let i = 0, j = 0; // i는 cards1의 인덱스, j는 cards2의 인덱스
+    for (let word of goal) {
+        // cards1에서 단어를 찾을 수 있으면 해당 단어를 사용
+        if (i < cards1.length && cards1[i] === word) {
+            i++;  // 사용한 단어는 cards1에서 하나씩 뒤로 가기
+        }
+        // cards2에서 단어를 찾을 수 있으면 해당 단어를 사용
+        else if (j < cards2.length && cards2[j] === word) {
+            j++;  // 사용한 단어는 cards2에서 하나씩 뒤로 가기
+        } else {
+            return "No";  // 두 카드 뭉치에서 단어를 찾을 수 없으면 실패
+        }
+    }
+    return "Yes";  // 모든 단어를 찾았다면 성공
+}
